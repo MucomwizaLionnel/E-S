@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content%}
+
+
+    {% if tache_form %}
+    <div class="container1" style="margin-left: 2cm;">
+        <h1>Envoyer le rapport de la semaine</h1>
+        <form method="POST" action="." enctype="multipart/form-data">
+            {% csrf_token %}
+            {{tache_form.as_p}}
+            
+            <!-- <button type="submit" id="new3">Envoyer</button> -->
+            <input type="submit" value="Envoyer">
+        </form>
+    </div>
+     {% endif %}    
+
+{% endblock %}

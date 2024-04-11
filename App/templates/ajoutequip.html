@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+
+<body>
+    <div class="container1" style="margin-left: 2cm;">
+        <h1>Envoyer le rapport de la semaine</h1>
+        <form action="#" method="post">
+            
+            <label for="">NOm</label><br><br>
+            <input type="date" name="nom"><br><br>
+            <label for="">Mambres</label><br><br>
+            <input type="text" name="mambres" cols="100"><br><br>
+            <label for="">Titre</label><br><br>
+            <input type="text" name="titre" cols="100"><br><br>
+            <label for="">Description</label><br><br>
+            <textarea  name="description" id="" cols="100" rows="10"></textarea><br><br>
+            
+            <button type="submit" id="new3">Envoyer</button>
+        </form>
+    </div>
+</body>
+
+</html>
+{% endblock %}

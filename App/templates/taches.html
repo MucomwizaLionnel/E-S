@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content%}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+{% load static %}
+
+
+<body>
+    <div class="containe">
+        <h1>Activites de la semaine</h1>
+        <table id="customers" border="1" style="margin-left: 2cm;">
+            <thead>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Technicien</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th colspan="2" id="mid" >Action</th>
+            </thead>
+            {% for x in tach %}
+            <tr>
+                <td>{{x.id}}</td>
+                <td>{{x.date}}</td>
+                <td>{{x.technicien}}</td>
+                <td>{{x.titre}}</td>
+                <td>{{x.description}}</td>
+                <td>
+                    <a href="update/{{x.id}}"><button id="up" style="color:aqua" >Modifier</button></a>
+                </td>
+                <td>
+                    <a href="supprimer/{{x.id}}"><button id="del" style="color:brown">Supprimer</button></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br><br>
+        <a href="{% url 'envoy' %} " style="margin-left: 3cm;">
+        <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+         Ajouter
+          </button></a>
+    </div>
+
+    {% endblock %}

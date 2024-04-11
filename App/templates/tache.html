@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content%}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+{% load static %}
+
+
+<body>
+    <div class="containe">
+        <h1 style="margin-left: 6cm;" >Activites de la semaine</h1><hr style=" background-color: darkseagreen;">
+        
+            {% for x in tach %}
+         
+                <div class="list-group" style="margin-left: 3cm;width: 79%;border-radius: 10%; background-color: darkseagreen;">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                      Id: 
+                    {{x.id}}
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                      Nom de technicien:
+                      {{x.Techniciens.id}}
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                      Titre:<br>
+                      {{x.titre}}
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Description:<br>
+                        {{x.description}}
+                      </li>
+                      <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Date :<br>
+                        {{x.date}}
+                      </li><br>
+                      <a href="{% url 'update' x.id %}"><button id="up" style="color:aqua" >Modifier</button></a>
+               <br>
+                      <a href="{% url 'supprimer' x.id %}"><button id="del" style="color:brown">Supprimer</button></a>
+                
+                    </div><br>
+                    
+          
+            {% endfor %}
+      
+        <br><br>
+        <a href="{% url 'envoy' %} " style="margin-left: 3cm;">
+        <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+         Ajouter
+          </button></a>
+    </div>
+
+    {% endblock %}
