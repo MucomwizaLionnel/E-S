@@ -70,9 +70,20 @@ def login_view(request):
             password=Connexion_form.cleaned_data.get('password')
             user=authenticate(username=username,password=password)
 
+
             if user:#si l'objet existe 
+
+
                 login(request, user)
-                return redirect(chef) #on connecte l'utilisateur
+                groups = [group.name for group in user.groups.all()]
+                if user.is_superuser or 'comptable' in groups:
+                    return redirect(comptable) #on connecte l'utilisateur
+                if 'chef' in groups:
+                    return redirect(chef) #on connecte l'utilisateur
+                if 'is_chef_Equip' in groups:
+                    return redirect(responsables) #on connecte l'utilisateur
+                
+            
             else:
                 Connexion_form=ConnexionForm()
         else:

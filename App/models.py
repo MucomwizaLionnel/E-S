@@ -35,9 +35,9 @@ class Techniciens(models.Model):
 
 class Tache(models.Model):
     date=models.DateField()
-    technicien=models.ForeignKey(Techniciens,on_delete=models.CASCADE, null=True)
+    
     titre=models.CharField(max_length=150)
-    description=models.TextField(max_length=1000)
+    document = models.FileField(upload_to='documents/', null=True)
 
 class Equipe(models.Model):
     nom=models.CharField(max_length=100)
@@ -61,13 +61,7 @@ class Stock(models.Model):
 
     commentaire=models.CharField(max_length=100)
 
-    
-    
-
-    commentaire=models.IntegerField()
 
 class Produit(models.Model):
     nomproduit=models.CharField(max_length=100)
-    
-
     dateinscri=models.DateField()
