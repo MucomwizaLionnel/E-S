@@ -24,7 +24,8 @@ urlpatterns = [
     path('prestation/',views.prestation,name='prestation' ),
     path('charge/',views.charge,name='charge' ),
     path('marche/',views.marche,name='marche' ),
-     path('stock/',views.stock,name='stock' ),
+    path('stock/',views.stock,name='stock' ),
+    path('login1/',views.login1,name='login1' ),
 
 
 

@@ -78,7 +78,7 @@ def login_view(request):
                 groups = [group.name for group in user.groups.all()]
                 if user.is_superuser or 'comptable' in groups:
                     return redirect(comptable) #on connecte l'utilisateur
-                if 'chef' in groups:
+                if user.is_superuser or 'chef' in groups:
                     return redirect(chef) #on connecte l'utilisateur
                 if 'is_chef_Equip' in groups:
                     return redirect(responsables) #on connecte l'utilisateur
@@ -151,6 +151,8 @@ def transaction(request):
     return render(request,'transaction.html') 
 def charge(request):
     return render(request,'charge.html') 
+def login1(request):
+    return render(request,'login1.html') 
 
 
 def tache(request):

@@ -1,46 +1,41 @@
 
 {% load static %}
 
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Formulaire de connexion</title>
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/style-login.css' %}">
-    <title>Login</title>
-
-    <div class="container">
-        <div class="row  mt-5 mb-5 shadow">
-            <div class="col-lg-6  shadow p-4">
-                        <div class="name">
-                            <h4>B@IT</h4>
-                            
-                        </div>
-                   
-                    <div class="form-title">
-                        <h2>Connexion</h2>
-                        <p>Entrer le nom utilisateur et le mots de pass correct </p>
+        <link rel="stylesheet" href="{% static 'css/style-login.css' %}">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    </head>
+    
+    <body class="login">
+        <div class="wrapper">
+            <form  method="POST" action="">
+                <h1>Connexion</h1>
+                {% csrf_token %}
+                
+                    <div class="input-box">
+                        
+                         {{ Connexion_form.username }}
+                        <i class='bx bxs-user'></i>
+                        
                     </div>
-                    <form class="form" method="POST" action=".">
-                        {% csrf_token %}
-                        <div class="form-row" style="width: 40px;height: 40px;">
-                            {{ Connexion_form.username }}
-                        </div>
-                        <div class="form-row" style="width: 40px;height: 40px;">
-                            {{ Connexion_form.password }}
-                        </div><br>
-                        <div class="form-row">
-                            <input type="submit" class="btn" value="Se Connecter">
-                        </div>
-                        <p>Creer un compte<a href="{% url 'register' %}"> Creer</a>.</p>
-                    </form>
-                </div>
-                <div class="col-lg-6">
 
-
-                    <img src="https://media.istockphoto.com/id/104731717/fr/photo/centre-de-vill%C3%A9giature-de-luxe.jpg?s=612x612&w=0&k=20&c=qn-Ugr3N5J_JBKZttni3vimlfBOd52jWG3FouENXye0=" alt="" class="img-fluid img-reponsive">
-
-                </div>
-            
-        
-            </div>
+                    <div class="input-box">
+                        
+                         {{ Connexion_form.password }}
+                        <i class='bx bx-lock-alt'></i>
+                        
+                    </div>
+                    <button type="submit" class="btn">Se connecter</button>
+                    <div class="register-link">
+                        <p>Si tu n'a pas un compte. Clique sur  --><a href="{% url 'register' %}" a>Creer un compte</a> </p>
+                    </div>
+            </form>
         </div>
+    </body>
+</html>
